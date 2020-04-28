@@ -1,0 +1,158 @@
+.my-container{
+    /*border: 1px solid lightgrey;*/
+    background: white;
+    font-family: "Times New Roman";
+    margin-bottom:10px;
+    position:relative;
+}
+
+.my-container .my-file{
+    border: 1px black;
+    margin-bottom:10px;
+    position:relative;
+    /*height: 500px;*/
+    display: block;
+}
+
+.my-container .my-file img{
+    max-height: 600px;
+    max-width: 500px;
+    display: block;
+}
+
+.my-container .my-info{
+    position:relative;
+    border: 1px solid lightgrey;
+    /*border-bottom: 1px solid lightgrey;*/
+    padding: 10px;
+    display: block;
+}
+
+.file-buttons{
+    /*margin: 10px;*/
+    position:relative;
+    border: 1px solid lightgrey;
+    padding: 10px;
+    width: 70px;
+    text-align: center;
+    margin-bottom: 40px;/*50*/
+    margin-top: 10px;
+    /*margin-left: 10px;*/
+}
+
+.file-buttons a{
+    text-decoration: none;
+}
+
+.comment-buttons{
+    position:relative;
+    border: 1px solid lightgrey;
+    padding: 10px;
+    width: 40px;
+    margin-bottom: 10px;
+    text-align: center;
+    float: right;
+    margin-right: 10px;
+
+}
+
+.file-buttons span{
+    display: inline-block;
+}
+
+.file-comment{
+    border: 1px solid lightgrey;
+    margin: 10px;
+    padding: 10px;
+    position:relative;
+}
+
+.leave-comment{
+    border: 1px solid lightgrey;
+    margin-top: 10px;
+    padding-left: 10px;
+    position:relative;
+    font-family: "Times New Roman";
+    display: none;
+    margin-bottom:10px;
+}
+
+.other-comment{
+    border: 1px solid lightgrey;
+    margin-top: 10px;
+    position:relative;
+    margin-bottom:10px;
+    padding-left: 10px;
+    padding-bottom: 10px;
+    font-family: "Times New Roman";
+}
+
+.comment-text{
+    border: 1px solid lightgrey;
+    min-height: 30px;
+    padding:10px;
+    margin-right: 10px;
+}
+
+.my-container .btn-primary{
+    margin: 10px;
+}
+
+button[name="answer-button"]{
+    animation: shadow 0s infinite alternate;
+    background: #0a73bb;
+}
+
+@keyframes shadow {
+    from {
+        box-shadow: 0 0 1px 1px cornflowerblue;
+    }
+    to {
+        box-shadow: 0 0 3px 3px cornflowerblue;
+    }
+}
+
+.field-fileform-files .control-label{
+    display: none;
+}
+
+.footer{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 50px;
+    /*line-height: 50px;*/
+    background-color: whitesmoke;
+    border-top: 1px solid lightgrey;
+    color: gray;
+    padding: 10px;
+}
+
+.pic{
+    top:30px;
+}
+
+#jquery_jplayer_3{
+    max-height: 100%;
+}
+html,
+body{
+    height: 100%;
+}
+.wrapper {
+    position: relative;
+    min-height: 100%;
+}
+
+.anime{
+    position: relative;
+    min-height: 100%;
+    background-image: url(../mypics/untitled.png); /* Путь к фоновому рисунку */
+    background-position: right top; /* Положение фона */
+    background-repeat: no-repeat; /* Отменяем повторение фона */
+}
+
+.content {
+    padding-bottom: 50px;
+}
+

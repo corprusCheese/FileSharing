@@ -1,0 +1,12 @@
+class_name: AcceptanceTester
+modules:
+    enabled:
+        - WebDriver:
+            url: http://localhost/index-test.php
+            browser: firefox
+            wait: 10
+            capabilities:
+                unexpectedAlertBehaviour: 'accept'
+        - Yii2:
+            part: [init, orm, fixtures]
+            entryScript: index-test.php

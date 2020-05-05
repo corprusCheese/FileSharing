@@ -29,17 +29,12 @@ AppAsset::register($this);
                 'style' => 'background-color: whitesmoke'
             ]
     ]);
-    $menuItems[] = ['label' => 'Главная', 'url' => ['/site/index']];
-    //$menuItems[] = ['label' => 'Немного о сайте', 'url' => ['/site/about']];
-    if (Yii::$app->user->isGuest){
-        $menuItems[] = ['label' => 'Войти', 'url' => ['/site/login']];
-        $menuItems[] = ['label' => 'Регистрация', 'url' => ['/site/register']];
-    }
-    else{
-        $menuItems[] = ['label' => 'Выйти', 'url' => ['/site/logout']];
-        $menuItems[] = ['label' => 'Мои файлы', 'url' => ['/site/lastloads']];
-    }
-    $menuItems[] = ['label' => 'Поиск', 'url' => ['/site/search']];
+    $menuItems[] = ['label' => 'Главная', 'url' => ['/admin/site/index']];
+
+    $menuItems[] = ['label' => 'Выйти', 'url' => ['/site/logout']];
+    $menuItems[] = ['label' => 'Файлы', 'url' => ['/admin/site/lastloads']];
+
+    $menuItems[] = ['label' => 'Поиск', 'url' => ['/admin/site/search']];
     echo \yii\bootstrap\Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => $menuItems]);

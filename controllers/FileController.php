@@ -8,6 +8,7 @@ use app\models\SearchForm;
 use app\other\SphinxHelper;
 use Yii;
 use yii\db\Exception;
+use yii\helpers\FileHelper;
 use yii\helpers\Url;
 use yii\web\Controller;
 use app\models\File;
@@ -101,7 +102,8 @@ class FileController extends Controller
         //$filePath = File::getFolder($model) .'\\' .$fileName;
 
         if (file_exists($absFilePath)) {
-            Yii::$app->response->SendFile($absFilePath)->send();
+            //Yii::$app->response->sendContentAsFile($absFilePath,$fileName);
+            Yii::$app->getResponse()->SendFile($absFilePath)->send();
         }
         else {
             throw new \Exception('Файл '.$fileName.' не найден');

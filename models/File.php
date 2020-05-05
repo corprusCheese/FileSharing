@@ -56,6 +56,11 @@ class File extends \yii\db\ActiveRecord
         return $this->name.'.'.$this->extension;
     }
 
+    public function getUsername()
+    {
+        return User::findUserByAuth($this->userAuthKey)->username;
+    }
+
     //получить все комменты
 
     public function getComments(){

@@ -2,7 +2,10 @@
 // первый - аудио, второй - видео
 
 $(document).ready(function(){
+
     var filepathAudio = '../uploads/music/';
+    if (window.location.href.indexOf('admin'))
+        filepathAudio = '../../uploads/music/';
     var name = $('.my-info').attr('name');
     filepathAudio+=name;
     $("#jquery_jplayer_1").jPlayer({
@@ -30,6 +33,8 @@ $(document).ready(function(){
 
 $(document).ready(function(){
     var filepathVideo = '../uploads/video/';
+    if (window.location.href.indexOf('admin'))
+        filepathAudio = '../../uploads/video/';
     var name = $('.my-info').attr('name');
     filepathVideo+=name;
     $("#jquery_jplayer_3").jPlayer({

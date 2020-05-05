@@ -10,6 +10,7 @@ use Yii;
 use app\models\LoginForm;
 use app\models\RegisterForm;
 use app\models\FileForm;
+use yii\debug\panels\EventPanel;
 use yii\web\Response;
 use yii\web\UploadedFile;
 use yii\filters\VerbFilter;
@@ -30,6 +31,11 @@ class SiteController extends \yii\web\Controller{
     public function actionIndex(){
         $model = new FileForm();
 
+        /*
+        if (Yii::$app->user->can('allFiles')){
+            return $this->redirect(['../admin/site/index']);
+        }*/
+
         return $this->render('index',[
             'model' => $model
     ]);
@@ -40,12 +46,16 @@ class SiteController extends \yii\web\Controller{
         $model = new LoginForm();
 
         if ($model->load(Yii::$app->request->post())&&$model->login()){
-            $this->redirect(['site/index']);
+            if (Yii::$app->user->can('allFiles'))
+                $this->redirect(['admin/site/index']);
+            else{
+                $this->redirect(['site/index']);
+            }
         }
 
-         return $this->render('login',[
+        return $this->render('login',[
              'model' => $model
-         ]);
+        ]);
     }
 
     //регистрация

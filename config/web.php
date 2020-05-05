@@ -62,10 +62,10 @@ $config = [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
-        'jwplayer' => [
-            'class' => 'wadeshuler\jwplayer\JWConfig',
-            'key' => '',  // <-- Your Key Here!!
-        ]
+
+        'authManager' => [
+            'class' => 'yii\rbac\DbManager',
+        ],
     ],
     'modules' => [
         //тут могут подключаться и другие модули
@@ -76,6 +76,10 @@ $config = [
         ],
         'api' => [
             'class' => 'app\modules\api\ApiModule',
+        ],
+
+        'admin' => [
+            'class' => 'app\modules\admin\AdminModule',
         ]
     ],
     'bootstrap' => [

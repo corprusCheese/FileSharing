@@ -5,7 +5,7 @@ use yii\bootstrap\ActiveForm;
 use yii\widgets\Pjax;
 use yii\helpers\Url;
 /* @var $dataProvider \yii\data\ActiveDataProvider */
-/* @var $searchModel \app\models\FileSearch */
+/* @var $searchModel \app\modules\admin\models\FileSearch */
 
 $this->title = 'Загруженные файлы';
 $this->params['breadcrumbs'][] = $this->title;
@@ -22,6 +22,12 @@ $this->params['breadcrumbs'][] = $this->title;
             [
                 'attribute'=>'fullName',
                 'label'=>'Имя файла',
+                'contentOptions' => ['style' => 'width: 50px']
+            ],
+            [
+                'attribute'=>'username',
+                'label'=>'Пользователь',
+
                 'contentOptions' => ['style' => 'width: 50px']
             ],
             [
@@ -68,6 +74,7 @@ $this->params['breadcrumbs'][] = $this->title;
         ]
 ]);
 ?>
+
 
 
 <?php Pjax::end(); ?>

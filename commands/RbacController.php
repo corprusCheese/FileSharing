@@ -32,9 +32,6 @@ class RbacController extends Controller
 
         $auth->addChild($admin, $my_user);
         $auth->addChild($admin, $viewAllFiles);
-
-        // Назначаем роль admin пользователю с ID 1
-        $auth->assign($admin, 1);
     }
 
     public function actionCreateAdmin(){
@@ -45,5 +42,10 @@ class RbacController extends Controller
         $command->bindParam(':p', $pass);
         $command->bindParam(':a',$auth);
         $command->execute();
+
+        // Назначаем роль admin пользователю с ID 1
+        $auth = Yii::$app->authManager;
+        $admin = $auth->createRole('admin');
+        $auth->assign($admin, 1);
     }
 }

@@ -83,7 +83,7 @@ $config = [
         ]
     ],
     'bootstrap' => [
-        'debug',
+        //'debug',
         'api'//ключ из массива modules
     ],
     'language'=>'ru-RU',

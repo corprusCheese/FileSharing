@@ -1,3 +1,9 @@
+/*
+на основе вот этого
+https://atuin.ru/blog/adaptivnyj-shablon-dlya-proigryvatelya-jplayer/
+
+тут также есть css для плейлистов, на всякий случай я его не трогал и оставил
+*/
 .clear {
     clear:both;
 }

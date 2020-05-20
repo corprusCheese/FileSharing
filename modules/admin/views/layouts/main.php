@@ -19,35 +19,35 @@ AppAsset::register($this);
     </head>
     <body>
         <?php $this->beginBody();?>
-<?php
+        <?php
 
-    \yii\bootstrap\NavBar::begin([
+        \yii\bootstrap\NavBar::begin([
             'brandLabel' => 'FileSharing',
             'brandUrl' => ['/site/index'],
             'options' => [
                 'class' => 'navbar-inverse navbar-static-top',
                 'style' => 'background-color: whitesmoke'
             ]
-    ]);
-    $menuItems[] = ['label' => 'Главная', 'url' => ['/admin/site/index']];
+        ]);
+        $menuItems[] = ['label' => 'Главная', 'url' => ['/admin/site/index']];
 
-    $menuItems[] = ['label' => 'Выйти', 'url' => ['/site/logout']];
-    $menuItems[] = ['label' => 'Файлы', 'url' => ['/admin/site/lastloads']];
+        $menuItems[] = ['label' => 'Выйти', 'url' => ['/site/logout']];
+        $menuItems[] = ['label' => 'Файлы', 'url' => ['/admin/site/lastloads']];
 
-    $menuItems[] = ['label' => 'Поиск', 'url' => ['/admin/site/search']];
-    echo \yii\bootstrap\Nav::widget([
-        'options' => ['class' => 'navbar-nav navbar-right'],
-        'items' => $menuItems]);
+        $menuItems[] = ['label' => 'Поиск', 'url' => ['/admin/site/search']];
+        echo \yii\bootstrap\Nav::widget([
+            'options' => ['class' => 'navbar-nav navbar-right'],
+            'items' => $menuItems]);
 
 
-    \yii\bootstrap\NavBar::end();
-?>
+        \yii\bootstrap\NavBar::end();
+        ?>
         <div class="wrapper">
         <div class="container content" style="margin-top: 0px">
             <?= $content?>
         </div>
         <footer class="footer panel-footer"><!--Footer-->
-            <div class="container text-center>
+            <div class="container">
                 <div class="row">
                     <p>Made by corprusCheese</p>
                 </div>

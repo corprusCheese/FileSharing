@@ -24,8 +24,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'id' => 'search-form',
             'options' => ['data' => ['pjax' => true]],]);?>
 
-    <?= $form->field($model, 'searchText')->textInput(['autofocus'=>true])->label(false);
-        //->hint('введите имя или расширение файла',['style'=>'font-style: italic;']);?>
+    <?= $form->field($model, 'searchText')->textInput(['autofocus'=>true])->label(false);?>
 
         <div class="form-group">
             <?= Html::submitButton('Найти',
@@ -35,13 +34,14 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php ActiveForm::end();?>
 
     </div>
-    <br><br><br><br><br>
+</div>
+<div class="row">
     <?php if(!$realFileCount && $model->searchText!=''): ?>
         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 col-xl-6" style=" min-width: 300px">
-             <div class="alert alert-danger alert-dismissable">
-                 <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
-                 <?= 'Не найдено ни одного файла.'?>
-             </div>
+            <div class="alert alert-danger alert-dismissable">
+                <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+                <?= 'Не найдено ни одного файла.'?>
+            </div>
         </div>
     <?php elseif($realFileCount && $model->searchText!=''): ?>
         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 col-xl-6" style=" min-width: 300px">
@@ -53,19 +53,13 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php elseif($model->searchText==''): ?>
     <?php endif; ?>
 </div>
+
 <?php if ($files): ?>
     <?php foreach ($files as $file) : ?>
         <?php
         $file = \app\models\File::getFileById($file['id']);
         if ($file == null)
             continue;
-        /*
-        try {
-            $file->name;
-        }
-        catch (Exception $e){
-            continue;
-        }*/
         $fileName = $file->name.'.'.$file->extension;
         $filePath = File::getFolder($file) .'\\' .$fileName;
         $fileUploaderName = User::findUserByAuth($file->userAuthKey)->username;

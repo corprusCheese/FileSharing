@@ -27,7 +27,6 @@ $this->params['breadcrumbs'][] = $this->title;
             [
                 'attribute'=>'username',
                 'label'=>'Пользователь',
-
                 'contentOptions' => ['style' => 'width: 50px']
             ],
             [
@@ -74,7 +73,5 @@ $this->params['breadcrumbs'][] = $this->title;
         ]
 ]);
 ?>
-
-
 
 <?php Pjax::end(); ?>

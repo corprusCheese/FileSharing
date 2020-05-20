@@ -39,12 +39,9 @@ class SearchForm extends Model{
 
             $data = SphinxHelper::queryIdx($this->searchText);
             $dataMain = SphinxHelper::queryMainIdx($this->searchText);
-            //$dataRt = SphinxHelper::queryRtIdx($this->searchText);
-            if (count($data)==count($dataMain)){
+            if (count($data)==count($dataMain))
                 //удаляет реал тайм таблицу, если индексы перезагружены
                 SphinxHelper::deleteAllRt();
-                //да, два запроса, но как по-другому?
-            }
 
             return $data;
         }

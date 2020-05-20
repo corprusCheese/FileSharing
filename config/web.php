@@ -44,14 +44,15 @@ $config = [
             'class' => 'yii\web\UrlManager',
             'enablePrettyUrl' => true,
             'showScriptName' => false,
-            'rules' => [
+            'enableStrictParsing' => false,
+            'rules' =>[
+                ''=>'site/index',
                 [
                     'class' => 'yii\rest\UrlRule',
                     'controller' => ['api/user','api/file','api/comment'],
-                    'pluralize'=> false
+                    'pluralize'=> false,
                 ],
-
-            ],
+            ]
         ],
         'sphinx' => [
             'class' => 'yii\sphinx\Connection',
@@ -69,13 +70,12 @@ $config = [
     ],
     'modules' => [
         //тут могут подключаться и другие модули
-
         'debug' => [
             'class' => 'yii\debug\Module',
             'allowedIPs' => ['*']
         ],
         'api' => [
-            'class' => 'app\modules\api\ApiModule',
+            'class' => 'app\modules\api\v1\ApiModule',
         ],
 
         'admin' => [
@@ -97,7 +97,5 @@ if (YII_ENV_DEV) {
         'class' => 'yii\gii\Module',
     ];
 }
-
-
 
 return $config;

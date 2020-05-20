@@ -1,6 +1,6 @@
 <?php
 
-namespace app\modules\api\controllers;
+namespace app\modules\api\v1\controllers;
 
 use Yii;
 use yii\filters\ContentNegotiator;
@@ -43,7 +43,6 @@ class MyApiController extends ActiveController{
     }
 
     //только гет запросы
-    //ибо тут нет админов или rbac
     public function behaviors()
     {
         return [

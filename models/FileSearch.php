@@ -46,8 +46,6 @@ class FileSearch extends File
     {
         $query = File::find();
 
-        // add conditions that should always apply here
-
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
             'pagination' =>[
@@ -80,19 +78,11 @@ class FileSearch extends File
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
-            //'downloadDate' => $this->downloadDate,
         ]);
 
-        $query->andFilterWhere(['like', 'name', $this->name])
-            ->andFilterWhere(['like', 'extension', $this->extension])
-            ->andFilterWhere(['like', 'userAuthKey', $this->userAuthKey])
-            ->andFilterWhere(['like', 'size',$this->size])
-            ->andWhere('name LIKE "%' . $this->fullName . '%" ' .
-                'OR extension LIKE "%' . $this->fullName . '%"' .
-                'OR CONCAT(name,".",extension) LIKE"%' . $this->fullName . '%"'
-            )
-            ->andWhere('userAuthKey=:u',[':u' => Yii::$app->user->identity->getAuthKey()])
-        ->andFilterWhere(['like', 'downloadDate',$this->downloadDate]);
+        $query->andFilterWhere(['like', 'size',$this->size])
+            ->andFilterWhere(['like', 'downloadDate',$this->downloadDate])
+            ->andFilterWhere(['like','CONCAT(name,".",extension)',$this->fullName]);
         return $dataProvider;
     }
 }

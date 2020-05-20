@@ -4,7 +4,6 @@ namespace app\modules\admin\models;
 
 use app\models\File;
 use app\models\User;
-use yii\web\UploadedFile;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
 use Yii;
@@ -48,6 +47,8 @@ class FileSearch extends File
     public function search($params)
     {
         $query = File::find();
+        $subQuery = User::find();
+        $query->leftJoin(["user"=> $subQuery],'authKey = userAuthKey');
 
         // add conditions that should always apply here
 
@@ -84,18 +85,14 @@ class FileSearch extends File
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
-            //'downloadDate' => $this->downloadDate,
         ]);
 
-        $query->andFilterWhere(['like', 'name', $this->name])
-            ->andFilterWhere(['like', 'extension', $this->extension])
-            ->andFilterWhere(['like', 'userAuthKey', $this->userAuthKey])
-            ->andFilterWhere(['like', 'size',$this->size])
-            ->andWhere('name LIKE "%' . $this->fullName . '%" ' .
-                'OR extension LIKE "%' . $this->fullName . '%"' .
-                'OR CONCAT(name,".",extension) LIKE"%' . $this->fullName . '%"'
-            )
-        ->andFilterWhere(['like', 'downloadDate',$this->downloadDate]);
+        $query->andFilterWhere(['like', 'size', $this->size])
+            ->andFilterWhere(['like','CONCAT(name,".",extension)', $this->fullName])
+            ->andFilterWhere(['like', 'downloadDate', $this->downloadDate])
+            ->andFilterWhere(['like', 'username', $this->username])
+        ;
+
         return $dataProvider;
     }
 }

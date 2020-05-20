@@ -4,19 +4,9 @@ namespace app\modules\admin\controllers;
 
 use app\models\Comment;
 use app\models\File;
-use app\models\FileSearch;
-use app\models\SearchForm;
-use app\other\DbHelper;
 use app\other\SphinxHelper;
-use Exception;
 use Yii;
-use app\models\LoginForm;
-use app\models\RegisterForm;
-use app\models\FileForm;
 use yii\helpers\Url;
-use yii\web\Response;
-use yii\web\UploadedFile;
-use yii\filters\VerbFilter;
 
 class FileController extends \app\controllers\FileController {
 

@@ -23,19 +23,15 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php $form = \yii\widgets\ActiveForm::begin([
             'id' => 'search-form',
             'options' => ['data' => ['pjax' => true]],]);?>
-
-    <?= $form->field($model, 'searchText')->textInput(['autofocus'=>true])->label(false);
-        //->hint('введите имя или расширение файла',['style'=>'font-style: italic;']);?>
-
+    <?= $form->field($model, 'searchText')->textInput(['autofocus'=>true])->label(false);?>
         <div class="form-group">
             <?= Html::submitButton('Найти',
                 [ 'class' =>'btn btn-primary', 'name' =>'search-button' ]) ?>
         </div>
-
     <?php ActiveForm::end();?>
-
     </div>
-    <br><br><br><br><br>
+</div>
+<div class="row">
     <?php if(!$realFileCount && $model->searchText!=''): ?>
         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 col-xl-6" style=" min-width: 300px">
              <div class="alert alert-danger alert-dismissable">
@@ -59,13 +55,6 @@ $this->params['breadcrumbs'][] = $this->title;
         $file = \app\models\File::getFileById($file['id']);
         if ($file == null)
             continue;
-        /*
-        try {
-            $file->name;
-        }
-        catch (Exception $e){
-            continue;
-        }*/
         $fileName = $file->name.'.'.$file->extension;
         $filePath = File::getFolder($file) .'\\' .$fileName;
         $fileUploaderName = User::findUserByAuth($file->userAuthKey)->username;

@@ -13,8 +13,6 @@ use Yii;
  * @property string $downloadDate
  * @property string|null $extension
  * @property string $userAuthKey
- *
- * @property User $userAuthKey0
  */
 class File extends \yii\db\ActiveRecord
 {
@@ -56,13 +54,14 @@ class File extends \yii\db\ActiveRecord
         return $this->name.'.'.$this->extension;
     }
 
+    //для вычисляемого поля в SearchForm
     public function getUsername()
     {
         return User::findUserByAuth($this->userAuthKey)->username;
+        //return $this->hasOne(User::className(),['authKey'=>$this->userAuthKey]);
     }
 
     //получить все комменты
-
     public function getComments(){
         return $this->hasMany(Comment::className(),['fileId'=>'id']);
     }

@@ -74,7 +74,7 @@ $this->params['breadcrumbs'][] = $this->title;
             <a href=<?="../file/view?id=".$file->id?>>
                 <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
             </a>
-            <a href=<?="../file/download?id=".$file->id.'&data-pjax=0'?>>
+            <a href=<?="../file/download?id=".$file->id?> data-pjax=0>
                 <span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span>
             </a>
             </div>

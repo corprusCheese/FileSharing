@@ -10,3 +10,8 @@ modules:
         - Yii2:
             part: [init, orm, fixtures]
             entryScript: index-test.php
+extensions:
+    enabled:
+        - Codeception\Extension\RunProcess:
+            0: java -jar -Dwebdriver.gecko.driver=geckodriver.exe vendor/se/selenium-server-standalone/bin/selenium-server-standalone.jar
+            sleep: 5

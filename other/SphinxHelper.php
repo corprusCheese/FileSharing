@@ -16,7 +16,8 @@ class SphinxHelper{
     //для главного индекса
     private static function ifRealData(){
         $dbName = \app\other\DbHelper::getDbName('dbname',Yii::$app->getDb()->dsn);
-        if ($dbName == 'filesharingdb')
+        // если это тестовая база - возвращает 0
+        if (strpos($dbName, "test") === false)
             return 1;
         else return 0;
     }

@@ -14,9 +14,11 @@
 
 ## Базы данных
 
-В filesharingdb.sql содержится скрипт на создание таблиц для моделей.
+В filesharingdb.sql содержится скрипт на создание таблиц для моделей. Можно создать ручками, а можно выполнить миграцию:
 
-Необходимо назвать рабочую базу данных filesharingdb.
+    php yii migrate
+
+Необходимо назвать рабочую базу данных **filesharingdb** (ну или как хотите, но поменяйте тогда в настройках название базы).
 
 Также нужно выполнить миграцию таблиц для RBAC:
 
@@ -29,11 +31,16 @@
 
 ## Тесты
 
-Если вы хотите запускать тесты, то нужно создать такую же базу, но под названием filesharingdb_test.
+Если вы хотите запускать тесты, то нужно создать такую же базу, но под названием **filesharingdb_test** (нужно, чтобы в названии тестовой базы было слово **test**); потом выполнить миграцию:
 
-Если вы хотите запускать приемочные тесты, нужно сначала запустить GeckoDriver, а потом Selenium Webdriver.
+    php tests\bin\yii migrate
+    
+Запускать тесты нужно так:
 
-Скачать GeckoDriver для mozilla: <a>https://github.com/mozilla/geckodriver/releases</a>
+    php vendor\bin\codecept run unit
+    php vendor\bin\codecept run api
+    php vendor\bin\codecept run functional
+    php vendor\bin\codecept run acceptance
 
 ## Sphinx
 
@@ -62,4 +69,14 @@ PS
 ------------
  - В файлообменнике используется Jplayer для воспроизведения музыки и видео, css для него я успешно позаимствовал отсюда, добавив немного своего.
 
-<a>https://atuin.ru/blog/adaptivnyj-shablon-dlya-proigryvatelya-jplayer/</a>
+    <a>https://atuin.ru/blog/adaptivnyj-shablon-dlya-proigryvatelya-jplayer/</a>
+    
+Картинки
+------------
+![main](web/mypics/1.png)
+
+![comments](web/mypics/2.png)
+
+![grid](web/mypics/3.png)
+    
+    
